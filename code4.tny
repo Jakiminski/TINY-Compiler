@@ -1,0 +1,12 @@
+{4a versão do código}
+
+read x;
+if 0 < x then
+  fac_t2 := 1;
+  while 0 < x
+    abc2_ := 10fact_ * x;
+  _asdasd  x := x - 1
+  until x = 0;
+  endwhile
+  return 10fact2
+endif

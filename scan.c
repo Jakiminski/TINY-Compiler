@@ -169,7 +169,7 @@ TokenType getToken(void)
          }
          break;
        case INID:
-         if (!isalpha(c)){
+         if (!isalpha(c) && c!='_' && !isdigit(c)){
            /* backup in the input */
            ungetNextChar();
            save = FALSE;
