@@ -21,11 +21,8 @@ void printToken( TokenType token, const char* tokenString )
     case REPEAT:
     case UNTIL:
     case READ:
-    case SWITCH:
-    case CASE:
-    case ENDSWITCH:
-    case WHILE:
     case WRITE:
+    case WHILE:
     case ENDWHILE:
       fprintf(listing,
          "reserved word: %s\n",tokenString);
@@ -39,7 +36,6 @@ void printToken( TokenType token, const char* tokenString )
     case PLUS: fprintf(listing,"+\n"); break;
     case MINUS: fprintf(listing,"-\n"); break;
     case TIMES: fprintf(listing,"*\n"); break;
-    case DDOT: fprintf(listing,":\n"); break;
     case OVER: fprintf(listing,"/\n"); break;
     case ENDFILE: fprintf(listing,"EOF\n"); break;
     case NUM:
@@ -62,7 +58,6 @@ void printToken( TokenType token, const char* tokenString )
 /* Function newStmtNode creates a new statement
  * node for syntax tree construction
  */
-/* 语法树 */
 TreeNode * newStmtNode(StmtKind kind)
 { TreeNode * t = (TreeNode *) malloc(sizeof(TreeNode));
   int i;
@@ -81,7 +76,6 @@ TreeNode * newStmtNode(StmtKind kind)
 /* Function newExpNode creates a new expression
  * node for syntax tree construction
  */
-/* 语义树 */
 TreeNode * newExpNode(ExpKind kind)
 { TreeNode * t = (TreeNode *) malloc(sizeof(TreeNode));
   int i;
@@ -116,7 +110,7 @@ char * copyString(char * s)
 /* Variable indentno is used by printTree to
  * store current number of spaces to indent
  */
-static indentno = 0;
+static int indentno = 0;
 
 /* macros to increase/decrease indentation */
 #define INDENT indentno+=2
@@ -139,6 +133,9 @@ void printTree( TreeNode * tree )
     printSpaces();
     if (tree->nodekind==StmtK)
     { switch (tree->kind.stmt) {
+        case WhileK:
+          fprintf(listing, "While\n");
+          break;
         case IfK:
           fprintf(listing,"If\n");
           break;
@@ -153,12 +150,6 @@ void printTree( TreeNode * tree )
           break;
         case WriteK:
           fprintf(listing,"Write\n");
-          break;
-        case SwitchK:
-          fprintf(listing,"Switch\n");
-          break;
-        case CaseK:
-          fprintf(listing,"Case\n");
           break;
         default:
           fprintf(listing,"Unknown ExpNode kind\n");

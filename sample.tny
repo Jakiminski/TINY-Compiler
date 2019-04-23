@@ -1,0 +1,7 @@
+asade1_bu := 0;
+y:= 19;
+if (y < 20) then
+        write y+90;
+        y := y+1
+endif
+
