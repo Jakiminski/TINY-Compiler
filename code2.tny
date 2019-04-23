@@ -1,0 +1,11 @@
+{2a versão do código}
+
+read x;
+if 0 < x then
+  fact := 1;
+  while 0 < x
+    fact := fact * x;
+    x := x - 1
+  until x = 0;
+  endwhile fact
+endif
