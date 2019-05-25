@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TINY Compiler" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/TINYZIM" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/TINYZIM" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="analyze.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="analyze.h" />
+		<Unit filename="cgen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cgen.h" />
+		<Unit filename="code.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="code.h" />
+		<Unit filename="globals.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parse.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parse.h" />
+		<Unit filename="scan.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="scan.h" />
+		<Unit filename="symtab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="symtab.h" />
+		<Unit filename="util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="util.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
