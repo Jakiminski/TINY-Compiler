@@ -1,11 +1,11 @@
-{2a versão do código}
+{2a versï¿½o do cï¿½digo}
 
 read x;
 if 0 < x then
   fact := 1;
   while 0 < x
     fact := fact * x;
-    x := x - 1
-  until x = 0;
-  endwhile fact
+    x := x - 1;
+  endwhile
+  write fact;
 endif
