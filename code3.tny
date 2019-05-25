@@ -1,12 +1,11 @@
-{2a versão do código}
+{cÃ³digo teste}
 
 read x;
 if 0 < x then
-  10fact := 1;
-  while 0 < x
-    10fact := 10fact * x;
-    x := x - 1
-  until x = 0;
-  endwhile
-  return 10fact2
+  answer := 1;
+else
+  answer := 0;
 endif
+while answer < x
+  x := x - 1;
+endwhile
