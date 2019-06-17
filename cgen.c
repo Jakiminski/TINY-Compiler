@@ -14,7 +14,7 @@
 
 /* tmpOffset is the memory offset for temps
    It is decremented each time a temp is
-   stored, and incremeted when loaded again
+   stored, and incremented when loaded again
 */
 static int tmpOffset = 0;
 
@@ -40,8 +40,7 @@ static void genStmt( TreeNode * tree)
          curCase = tree;
 
          if (TraceCode) emitComment("-> ") ;
-         emitRM("LDA", ac1, 0, ac,"tentando colocar o valor de ac em ac1");
-         //loop que gera os cases
+         emitRM("LDA", ac1, 0, ac,"trying to put ac value on ac1");
          do{
              p1 = curCase->child[0] ;
              p2 = curCase->child[1] ;
@@ -88,6 +87,25 @@ static void genStmt( TreeNode * tree)
          emitRestore() ;
          if (TraceCode)  emitComment("<- if") ;
          break; /* if_k */
+
+        case WhileK:
+            printf("WHILE MODAFUCCA BITTY <3\n");
+                if (TraceCode)
+                        emitComment("-> while");
+                p1 = tree->child[0];
+                p2 = tree->child[1];
+                currentLoc = emitSkip(0);
+                cGen(p1);
+                savedLoc1 = emitSkip(1);
+                cGen(p2);
+                emitRM_Abs("LDA", pc, currentLoc, "jmp to test");
+                currentLoc = emitSkip(0);
+                emitBackup(savedLoc1);
+                emitRM_Abs("JEQ", ac, currentLoc, "skip the body");
+                emitRestore();
+                if (TraceCode)
+                        emitComment("<- while");
+                break;
 
       case RepeatK:
          if (TraceCode) emitComment("-> repeat") ;

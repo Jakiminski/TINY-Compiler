@@ -1,11 +1,8 @@
-{2a vers�o do c�digo}
 
 read x;
-if 0 < x then
-  fact := 1;
-  while 0 < x
-    fact := fact * x;
-    x := x - 1;
-  endwhile
-  write fact;
-endif
+fac := 1;
+while 0 < x
+  fac := fac * x;
+  x := x - 1;
+endwhile
+write fac;
