@@ -89,7 +89,7 @@ static void genStmt( TreeNode * tree)
          break; /* if_k */
 
         case WhileK:
-            printf("WHILE MODAFUCCA BITTY <3\n");
+            printf("++++++++++While statement identified+++++++++++++++.\n");
                 if (TraceCode)
                         emitComment("-> while");
                 p1 = tree->child[0];

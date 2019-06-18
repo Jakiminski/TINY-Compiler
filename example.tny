@@ -1,17 +1,3 @@
-{ Sample program
-  in TINY language -
-  computes factorial
-}
-read x; { input an integer }
- -- Ada comment
------ Ada comment
--------Ada comment
-if 0 < x then { don't compute if x <= 0 }
-  fact := 1;
-  repeat
-    fact := fact * x;
-    x := x - 1
-  until x = 0;
-  write fact  { output factorial of x }
-end
-
+read true;
+while true < 0
+endwhile
